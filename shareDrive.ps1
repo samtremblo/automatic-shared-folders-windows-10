@@ -11,7 +11,7 @@ Grant-SmbShareAccess -Name "c" -AccountName "Everyone" -AccessRight Full -Force
 #$acl.SetAccessRule($rule)
 #$acl | Set-Acl c:\
 
-#modify sharepath to other folder if changed to give rights
+#sharepath has to correspond to whatever your shared drive path is. If you changed c:\ to e:\turnip\ this also has to be e:\turnip\ 
 $sharepath = "c:\"
 $Acl = Get-ACL $SharePath
 $AccessRule= New-Object System.Security.AccessControl.FileSystemAccessRule("everyone","FullControl","ContainerInherit,Objectinherit","none","Allow")
