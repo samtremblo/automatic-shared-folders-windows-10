@@ -1,4 +1,4 @@
-# Automatic-shared-drives-win10
+# automatic public smb folders from win10 device to local network
 Windows 10 is shit for public shared drives on a local network, automates the process using C drive,
 
 **this shares the whole C drive to everyone by default on the local network. Use at your own risk.**
