@@ -17,3 +17,13 @@ $Acl = Get-ACL $SharePath
 $AccessRule= New-Object System.Security.AccessControl.FileSystemAccessRule("everyone","FullControl","ContainerInherit,Objectinherit","none","Allow")
 $Acl.AddAccessRule($AccessRule)
 Set-Acl $SharePath $Acl
+
+#Supposed to make local folders accessible without any protection, but windows 10 is shit so it doesnt work. Needs to be done manually so it wont block you from other computers. Remove folder protection in advanced network settings.
+$RegistryPath = 'HKLM:SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters'
+$Name = 'RestrictNullSessAccess'
+$Value = '0'
+New-ItemProperty -Path $RegistryPath -Name $Name -Value $Value -PropertyType DWORD -Force 
+$RegistryPath = 'HKLM:SYSTEM\CurrentControlSet\Control\Lsa'
+$Name = 'everyoneincludesanonymous'
+$Value = '1'
+New-ItemProperty -Path $RegistryPath -Name $Name -Value $Value -PropertyType DWORD -Force 
