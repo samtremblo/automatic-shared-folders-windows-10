@@ -4,13 +4,6 @@
 net share c=c:\
 Grant-SmbShareAccess -Name "c" -AccountName "Everyone" -AccessRight Full -Force
 
-#Gives everyone acess, uncomment if 2nd not working
-#$acl = Get-Acl c:\
-#$permission = "Everyone","FullControl","Allow"
-#$rule = New-Object System.Security.AccessControl.FileSystemAccessRule $permission
-#$acl.SetAccessRule($rule)
-#$acl | Set-Acl c:\
-
 #sharepath has to correspond to whatever your shared drive path is. If you changed c:\ to e:\turnip\ this also has to be e:\turnip\ 
 $sharepath = "c:\"
 $Acl = Get-ACL $SharePath
