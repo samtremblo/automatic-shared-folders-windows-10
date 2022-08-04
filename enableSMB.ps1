@@ -28,6 +28,6 @@ Set-service -Name SSDPSRV -StartupType Automatic
 
 Start-service upnphost
 
-#enable snb
+#enable smb
 Get-WindowsOptionalFeature -Online -FeatureName "SMB1Protocol"
 Enable-WindowsOptionalFeature -Online -FeatureName "SMB1Protocol" -All
